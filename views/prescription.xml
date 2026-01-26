@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+   <data>
+
+        <record id="presc_tree" model="ir.ui.view">
+        <field name="name">presc.tree</field>
+        <field name="model">hospital.prescription</field>
+        <field name="arch" type="xml">
+            <tree>
+                 <field name="prescription_number"/>
+                 <field name="prescription_number"/>
+                <field name="patient_id"/>
+                <field name="dictor_id"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="presc_form" model="ir.ui.view">
+        <field name="name">presc.form</field>
+        <field name="model">hospital.prescription</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                       <div class="oe_title">
+                        <h1>
+                            <field name="prescription_number"/>
+                        </h1>
+                    </div>
+                    <group>
+
+                        <group>
+                            <field name="prescription_date"/>
+                            <field name="patient_id"/>
+                            <field name="dictor_id"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="presc_action" model="ir.actions.act_window">
+        <field name="name">Manage Appointments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.prescription</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+     <menuitem
+            id="hospital_root"
+            name="Hospital System"
+             groups="hms.hospital_admin_group"
+            sequence="1"
+    />
+
+
+    <menuitem
+            id="presc_root"
+            name="Prescription"
+            parent="hospital_root"
+            action="presc_action"
+            sequence="5"
+    />
+
+   </data>
+
+</odoo>

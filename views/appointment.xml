@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+   <data>
+
+        <record id="appointment_tree" model="ir.ui.view">
+        <field name="name">appointment.tree</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="card_number"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="appointment_form" model="ir.ui.view">
+        <field name="name">appointment.form</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                  <header>
+                      <button name="action_cancel" string="Cancel Appointment" type="object" class="btn btn-warning"/>
+                      <button name="action_money" string="Lacag Qabasho" type="object" class="btn btn-success"/>
+                      <button name="action_credit" string="Deyn" type="object" class="btn btn-danger"/>
+                      <button name="action_free" string="Free" type="object"/>
+                    <field name="state" widget="statusbar" class="oe_highlight"/>
+                </header>
+                <sheet>
+                       <div class="oe_title">
+                        <h1>
+                            <field name="card_number"/>
+                        </h1>
+                    </div>
+                    <group>
+
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="age"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="appointment_action" model="ir.actions.act_window">
+        <field name="name">Manage Appointments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+      <menuitem
+            id="hospital_root"
+            name="Hospital System"
+             groups="hms.hospital_admin_group"
+            sequence="1"
+    />
+
+
+    <menuitem
+            id="appointment_root"
+            name="Appointments"
+            parent="hospital_root"
+            action="appointment_action"
+            sequence="4"
+    />
+
+   </data>
+
+</odoo>

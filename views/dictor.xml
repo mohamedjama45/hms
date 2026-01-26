@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+   <data>
+
+        <record id="dictor_tree" model="ir.ui.view">
+        <field name="name">dictor.tree</field>
+        <field name="model">h.dictor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                 <field name="sector_id"/>
+                <field name="phone"/>
+                <field name="gender"/>
+                <field name="age"/>
+                <field name="date_of_birth"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="dictor_form" model="ir.ui.view">
+        <field name="name">dictor.form</field>
+        <field name="model">h.dictor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                       <div class="oe_title">
+                        <h1>
+                           <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+
+                        <group>
+                             <field name="sector_id"/>
+                            <field name="phone"/>
+                            <field name="gender"/>
+                        </group>
+
+                        <group>
+                            <field name="age"/>
+                            <field name="date_of_birth"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="dictor_action" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">h.dictor</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+  <menuitem
+            id="hospital_root"
+            name="Hospital System"
+             groups="hms.hospital_admin_group"
+            sequence="1"
+    />
+
+    <menuitem
+            id="dictor_root"
+            name="Doctors"
+            parent="hospital_root"
+            action="dictor_action"
+            sequence="3"
+    />
+
+   </data>
+
+</odoo>

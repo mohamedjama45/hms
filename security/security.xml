@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+
+    <record id="hospital_category" model="ir.module.category" >
+        <field name="name">Hospital System</field>
+        <field name="description">Hospital Groups</field>
+    </record>
+
+    <record id="hospital_doctor_group" model="res.groups">
+        <field name="name">doctor</field>
+        <field name="category_id" ref="hospital_category"/>
+    </record>
+
+     <record id="hospital_reception_group" model="res.groups">
+        <field name="name">reception</field>
+         <field name="category_id" ref="hospital_category"/>
+    </record>
+
+      <record id="hospital_admin_group" model="res.groups">
+        <field name="name">hospital admin</field>
+         <field name="category_id" ref="hospital_category"/>
+    </record>
+
+</odoo>

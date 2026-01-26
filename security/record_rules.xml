@@ -1,0 +1,12 @@
+<!--<?xml version='1.0' encoding='utf-8'?>-->
+<!--<odoo>-->
+
+
+<!--  <record id="rule_doctor_own_appointments" model="ir.rule">-->
+<!--    <field name="name">Doctor Own Appointments</field>-->
+<!--    <field name="model_id" ref="model_hospital_appointment"/>-->
+<!--    <field name="domain_force">[('doctor_id.user_id','=',user.id)]</field>-->
+<!--    <field name="groups" eval="[(4, ref('hospital.group_hospital_doctor'))]"/>-->
+<!--</record>-->
+
+<!--</odoo>-->

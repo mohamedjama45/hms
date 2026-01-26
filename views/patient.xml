@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <data>
+
+        <record id="patient_search" model="ir.ui.view">
+            <field name="name">patient.search</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <filter name="filter_female" string="Female" domain="[('gender','=','female')]"/>
+                    <group>
+                        <filter name="gender" string="Gender" context="{'group_by':'gender'}"/>
+                    </group>
+                    <searchpanel>
+                         <field name="gender" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record id="patient_tree" model="ir.ui.view">
+            <field name="name">patient.tree</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="card_number"/>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="dictor_id"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="patient_form" model="ir.ui.view">
+            <field name="name">patient.form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="create_appoint" string="Make an Appointment" type="object" />
+                           <button class="oe_stat_button" type="object" name="action_view_booking"
+                                 icon="fa-star">
+                            <field string="Appointments" name="booking_count" widget="statinfo"/>
+                        </button>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="card_number"/>
+                            </h1>
+                        </div>
+                        <group>
+
+
+                            <group>
+                                <field name="name"/>
+                                <field name="dictor_id"/>
+                                <field name="phone"/>
+                                <field name="date_of_birth"/>
+                                <field name="age"/>
+                                <field name="gender"/>
+                            </group>
+
+                        </group>
+
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="activity_ids"/>
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="patient_action" model="ir.actions.act_window">
+            <field name="name">Patient</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+         <menuitem
+            id="hospital_root"
+            name="Hospital System"
+            groups="hms.hospital_admin_group"
+            sequence="1"
+    />
+
+        <menuitem
+                id="patient_root"
+                name="Patient"
+                parent="hospital_root"
+                action="patient_action"
+                sequence="1"
+        />
+
+    </data>
+
+</odoo>
