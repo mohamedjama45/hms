@@ -58,9 +58,8 @@
 
       <menuitem
             id="hospital_root"
-            name="Hospital System"
-             groups="hms.hospital_admin_group"
-            sequence="1"
+            name="Hospital"
+            sequence="2"
     />
 
 

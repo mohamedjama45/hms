@@ -66,6 +66,9 @@ class Patients(models.Model):
             else:
                 rec.date_of_birth = False
 
+    def action_view_booking(self):
+        return
+
 
 
 

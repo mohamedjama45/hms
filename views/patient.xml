@@ -46,7 +46,7 @@
                         <button name="create_appoint" string="Make an Appointment" type="object" />
                            <button class="oe_stat_button" type="object" name="action_view_booking"
                                  icon="fa-star">
-                            <field string="Appointments" name="booking_count" widget="statinfo"/>
+<!--                            <field string="Appointments" name="booking_count" widget="statinfo"/>-->
                         </button>
                     </header>
                     <sheet>
@@ -90,9 +90,8 @@
 
          <menuitem
             id="hospital_root"
-            name="Hospital System"
-            groups="hms.hospital_admin_group"
-            sequence="1"
+            name="Hospital"
+            sequence="2"
     />
 
         <menuitem
