@@ -35,17 +35,16 @@ class Appointment(models.Model):
 
 
     def action_money(self):
-        return{
-            'name':'pop up Form',
-            'type':'ir.actions.act_window',
-            'res_model':'account.payment',
-            'view_mode':'form',
-            'view_id':self.env.ref('hms.accountka_form').id,
-            'target':'new',
-            'context':{
-            'default_partner_id':self.patient_id.id
-        }
-        }
+      view = self.env['ir.ui.view'].search([('name', '=', 'accountka.form')])
+      return {
+          'name':'Payment Form',
+          'type':'ir.actions.act_window',
+          'view_mode':'form',
+          'res_model':'account.payment',
+           'target': 'new',
+          'view_id': view.id
+      }
+
 
 
     def action_free(self):

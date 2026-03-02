@@ -10,12 +10,12 @@
                 <form>
                     <sheet>
                         <group>
-                        <field name="suitable_journal_ids" invisible="1"/>
-                             <field name="partner_id"/>
-                             <field name="company_id" invisible="1"/>
-                        <field name="journal_id"/>
-                        <field name="date"/>
-                        <field name="amount"/>
+                            <field name="suitable_journal_ids" invisible="1"/>
+                            <field name="journal_id"/>
+                            <field name="amount"/>
+                            <field name="discount_type"/>
+                            <field name="fixed_discount" invisible="discount_type != 'fixed'"/>
+                            <field name="fixed_percentage"  invisible="discount_type != 'percentage'"/>
                        </group>
                     </sheet>
                 </form>
